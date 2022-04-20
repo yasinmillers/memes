@@ -103,9 +103,9 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public function validateAuthKey($auth_key)
+    public function validateAuthKey($authKey)
     {
-        return $this->auth_key === $auth_key;
+        return $this->auth_key === $authKey;
     }
 
     /**

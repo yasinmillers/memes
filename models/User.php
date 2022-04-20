@@ -29,13 +29,22 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         ],
     ];
 
+    public static function tableName()
+    {
+        return 'users';
+    }
 
     /**
      * {@inheritdoc}
      */
     public static function findIdentity($id)
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        // return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        return self::find()->where(['id '
+        => $id])
+            ->one();
+        //return self::findOne($id);
+
     }
 
     /**
@@ -43,13 +52,17 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
-            }
-        }
+        // foreach (self::$users as $user) {
+        //     if ($user['accessToken'] === $token) {
+        //         return new static($user);
+        //     }
+        // }
 
-        return null;
+        // return null;
+        return self::find()->where(['access
+        -token '
+        => $token])
+            ->one();
     }
 
     /**
@@ -60,13 +73,15 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      */
     public static function findByUsername($username)
     {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
-                return new static($user);
-            }
-        }
+        // foreach (self::$users as $user) {
+        //     if (strcasecmp($user['username'], $username) === 0) {
+        //         return new static($user);
+        //     }
+        // }
 
-        return null;
+        // return null;
+
+        return self::findone(['username' => $username]);
     }
 
     /**

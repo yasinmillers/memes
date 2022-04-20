@@ -21,4 +21,7 @@ class SignupForm extends Model
             [['password_repeat'], 'compare', 'compareAttribute' => 'password']
         ];
     }
+    public function signup()
+    {
+    }
 }

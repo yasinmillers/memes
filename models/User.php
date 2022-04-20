@@ -95,17 +95,17 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public function getAuthKey()
+    public function getAuth_key()
     {
-        return $this->authKey;
+        return $this->auth_key;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function validateAuthKey($authKey)
+    public function validateAuth_key($auth_key)
     {
-        return $this->authKey === $authKey;
+        return $this->auth_key === $auth_key;
     }
 
     /**

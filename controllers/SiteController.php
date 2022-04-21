@@ -70,7 +70,7 @@ class SiteController extends Controller
     {
         $model = new SignupForm();
 
-        if ($model->load(data: Yii::$app->request->post()) && $model->signup()) {
+        if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             return $this->redirect(Yii::$app->homeUrl);
         }
     }

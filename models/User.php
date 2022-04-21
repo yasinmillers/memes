@@ -44,6 +44,19 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     }
 
 
+
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'username' => 'Username',
+            'password' => 'Password',
+            'auth_key' => 'Auth Key',
+            'access_token' => 'Access Token',
+        ];
+    }
+
+
     /**
      * {@inheritdoc}
      */

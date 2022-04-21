@@ -26,6 +26,7 @@ class SignupForm extends Model
         $user = new User();
         $user->username = $this->username;
         $user->password = \yii::$app->security->generatePasswordHash($this->password);
-        $user->access_token = \yii::$app->security->generateRandomKey();
+        $user->access_token = \yii::$app->security->generateRandomString();
+        $user->auth_key = \yii::$app->security->generateRandomString();
     }
 }

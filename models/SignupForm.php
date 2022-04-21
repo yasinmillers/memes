@@ -26,14 +26,14 @@ class SignupForm extends Model
     {
         $user = new User();
         $user->username = $this->username;
-        $user->password = \yii::$app->security->generatePasswordHash($this->password);
-        $user->access_token = \yii::$app->security->generateRandomString();
-        $user->auth_key = \yii::$app->security->generateRandomString();
+        $user->password = \Yii::$app->security->generatePasswordHash($this->password);
+        $user->access_token = \Yii::$app->security->generateRandomString();
+        $user->auth_key = \Yii::$app->security->generateRandomString();
 
         if ($user->save()) {
             return true;
         }
-        \yii::error(message: "user not saved " . VarDumper::dumpAsString($user->errors));
+        // \Yii::error(message::"user not saved " . VarDumper::dumpAsString($user->errors));
         return false;
     }
 }

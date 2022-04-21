@@ -33,6 +33,16 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
         return 'users';
     }
+    public function rules()
+    {
+        return [
+            [['username', 'password', 'auth_key', 'access_token'], 'required'],
+            [['username'], 'string', 'max' => 50],
+            [['password'], 'string', 'max' => 45],
+            [['auth_key', 'access_token'], 'string', 'max' => 255],
+        ];
+    }
+
 
     /**
      * {@inheritdoc}

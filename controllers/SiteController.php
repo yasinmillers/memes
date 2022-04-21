@@ -73,7 +73,10 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             return $this->redirect(Yii::$app->homeUrl);
         }
-        return $this->render('signup');
+        // return $this->render(view:'signup', ['model' => $model]);
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
     }
 
     /**

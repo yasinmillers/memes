@@ -18,7 +18,7 @@ class SignupForm extends Model
         return [
 
             [['username', 'password', 'password_repeat'], 'required'],
-            [['username', 'password', 'password_repeat'], 'string', 'min' => 4, 'max' => 16],
+            [['username', 'password', 'password_repeat'], 'string', 'min' => 4,],
             [['password_repeat'], 'compare', 'compareAttribute' => 'password']
         ];
     }
@@ -33,7 +33,7 @@ class SignupForm extends Model
         if ($user->save()) {
             return true;
         }
-        // \Yii::error(message::"user not saved " . VarDumper::dumpAsString($user->errors));
+        \Yii::error($user->errors);
         return false;
     }
 }

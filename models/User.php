@@ -38,7 +38,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         return [
             [['username', 'password', 'auth_key', 'access_token'], 'required'],
             [['username'], 'string', 'max' => 50],
-            [['password'], 'string', 'max' => 45],
+            [['password'], 'string', 'min' => 4,],
             [['auth_key', 'access_token'], 'string', 'max' => 255],
         ];
     }

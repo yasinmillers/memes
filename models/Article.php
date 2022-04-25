@@ -3,6 +3,9 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\SluggableBehavior;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "article".
@@ -24,6 +27,21 @@ class Article extends \yii\db\ActiveRecord
     {
         return 'article';
     }
+    public static function behaviuors()
+    {
+        return [
+            TimestampBehavior::class,
+            [
+                ' class' => BlameableBehavior::class,
+                'updatedByAttribute' => false
+            ],
+            [
+                'class' => SluggableBehavior::class,
+                ' attribute' => 'title'
+            ]
+        ];
+    }
+
 
     /**
      * {@inheritdoc}
@@ -31,9 +49,9 @@ class Article extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'slug', 'body', 'created_at', 'updated_at', 'created_by'], 'required'],
+            [['title', 'body'], 'required'],
             [['body'], 'string'],
-            [['created_at', 'updated_at', 'created_by'], 'integer'],
+            [['created_at'], 'integer'],
             [['title', 'slug'], 'string', 'max' => 1024],
         ];
     }

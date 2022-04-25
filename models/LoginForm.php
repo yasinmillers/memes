@@ -17,7 +17,7 @@ class LoginForm extends Model
     public $password;
     public $rememberMe = true;
 
-
+    private $_user = false;
 
 
     /**
@@ -60,7 +60,11 @@ class LoginForm extends Model
     public function login()
     {
         if ($this->validate()) {
-            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+            Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+            $user = User::findOne(['id' => Yii::$app->user->id]);
+            $user->is_logged_in = true;
+            $user->save();
+            return true;
         }
         return false;
     }

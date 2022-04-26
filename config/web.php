@@ -1,5 +1,7 @@
 <?php
 
+use yii\base\Theme;
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -48,6 +50,14 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [],
+        ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    "  @app/views" => '@vendor/hail812/yii2-adminlte3/src/views'
+                ],
+            ],
+
         ],
 
     ],

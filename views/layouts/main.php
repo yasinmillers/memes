@@ -41,7 +41,8 @@ AppAsset::register($this);
             'items' => [
                 ['label' => 'Home', 'url' => ['/site/index']],
                 ['label' => 'About', 'url' => ['/site/about']],
-                ['label' => 'Contact', 'url' => ['/site/contact']],
+                ['label' => 'Articles', 'url' => ['/site/about']],
+                ['label' => 'Contact', 'url' => ['/article']],
                 Yii::$app->user->isGuest ? (['label' => 'Login', 'url' => ['/site/login']]
                 ) : ('<li>'
                     . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
@@ -54,6 +55,8 @@ AppAsset::register($this);
                 ),
                 Yii::$app->user->isGuest ? (['label' => 'signup', 'url' => ['/site/signup']]
                 ) : ""
+
+
             ],
         ]);
         NavBar::end();

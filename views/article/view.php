@@ -38,13 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'created_by',
         ],
     ]) ?>
-    <h1>
-        <?= $model->createdBy->username ?>
 
-    </h1>
-    <h1>
-        <?= $model->body ?>
-
-    </h1>
 
 </div>

@@ -33,7 +33,6 @@ class Article extends \yii\db\ActiveRecord
             TimestampBehavior::class,
             [
                 ' class' => BlameableBehavior::class,
-                'updatedByAttribute' => false
             ],
             [
                 'class' => SluggableBehavior::class,
@@ -51,7 +50,6 @@ class Article extends \yii\db\ActiveRecord
         return [
             [['title', 'body'], 'required'],
             [['body'], 'string'],
-            [['created_at'], 'integer'],
             [['title', 'slug'], 'string', 'max' => 1024],
         ];
     }

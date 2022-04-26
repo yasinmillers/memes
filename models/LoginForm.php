@@ -62,7 +62,7 @@ class LoginForm extends Model
         if ($this->validate()) {
             Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
             $user = User::findOne(['id' => Yii::$app->user->id]);
-            $user->is_logged_in = true;
+            // $user->is_logged_in = true;
             $user->save();
             return true;
         }

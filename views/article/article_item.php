@@ -7,5 +7,11 @@ use yii\helpers\Html;
 ?>
 
 <div>
-    <h2></h2>
+    <h2> <?php echo \yii\helpers\Html::encode($model->title) ?></h2>
+
+    <div>
+
+        <h2> <?php echo \yii\helpers\Html::encode($model->body) ?></h2>
+
+    </div>
 </div>

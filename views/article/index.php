@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
 
-       ' ItemView'=>'article_item'
+        ' ItemView' => 'article_item'
         // 'columns' => [
         //     ['class' => 'yii\grid\SerialColumn'],
 
